@@ -19,7 +19,7 @@ console.log(document.querySelector('.guess').value);
 
 //Lecture Handling Click Events
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20; // known as a state variable. Updates with the state. 
 
 
@@ -71,3 +71,29 @@ document.querySelector('.check').addEventListener('click', function(){
 // see above const secretNumber and else if statement 
 //Lecture Dom Manipulation with CSS 
 //see above document.querySelector('body').style.width...p5.BandPass()
+
+// Coding Challenge # 1
+/* 
+Implement a game reset functionality, so that the player can make a new guess! Here is how:
+
+1. Select the element with the 'again' class and attach a click event handler
+2. In the handler function, restore initial values of the score and secretNumber variables
+3. Restore the initial conditions of the message, number, score and guess input field
+4. Also restore the original background color (#222) and number width (15rem)
+
+GOOD LUCK 😀
+*/
+
+document.querySelector('.again').addEventListener('click', function() {
+    score = 20;
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+    document.querySelector('.message').textContent = 'Start guessing...';     
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.guess').value = ''; 
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+
+
+})
